@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 
 const MenuItem = ({ title , imageUrl , size , history , linkUrl , match}) => {
 
-  console.log(`${match.url}${linkUrl}`,'?')
+
   return (
     <div onClick={()=> { history.push(`${match.url}${linkUrl}`) } } style={{
       backgroundImage: `url(${imageUrl})`
