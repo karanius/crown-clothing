@@ -29,7 +29,7 @@ class App extends React.Component {
         });
       }
 
-      setCurrentUser( userAuth );
+      setCurrentUser(userAuth);
     });
   }
 
@@ -38,7 +38,7 @@ class App extends React.Component {
   }
 
   render() {
-    const {currentUser} = this.props;
+    const { currentUser } = this.props;
 
     return (
       <div>
@@ -46,20 +46,29 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route exact path="/signin" render={()=>{return currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage/>) }}  />
+          <Route
+            exact
+            path="/signin"
+            render={() => {
+              return currentUser ? (
+                <Redirect to="/" />
+              ) : (
+                <SignInAndSignUpPage />
+              );
+            }}
+          />
+          <Route render={()=><Redirect to="/" />} />
         </Switch>
       </div>
     );
   }
 }
 
-
 const mapStateToProps = (states) => {
   return {
     currentUser: states.users.currentUser,
   };
 };
-
 
 const mapDispatchToProps = (dispatch) => {
   return {
