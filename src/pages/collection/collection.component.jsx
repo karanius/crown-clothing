@@ -25,7 +25,5 @@ const mapStateToProps = (state, ownProps) => ({
   collection: selectCollection(ownProps.match.params.collectionId)(state),
 });
 
-// = createStructuredSelector({
-// })
 
 export default connect(mapStateToProps)(CollectionPage);
